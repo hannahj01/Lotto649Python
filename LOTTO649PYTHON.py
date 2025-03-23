@@ -15,6 +15,7 @@ while True:
 
     if player_numbers == winning_numbers:
         print("\nJackpot! You won!")
+        print("Abel sucks!")
         print("Player's Winning Ticket:", sorted(player_numbers))
         print(f"Tickets Needed to Win: {ticket_count}")
         break
