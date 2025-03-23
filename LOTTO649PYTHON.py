@@ -1,17 +1,20 @@
 import random
 
-# Generate 6 unique winning numbers between 1 and 49
-winning_numbers = random.sample(range(1, 50), 6)
+def generate_ticket():
+    return set(random.sample(range(1, 50), 6))
 
-# Generate 6 unique player numbers between 1 and 49
-player_numbers = random.sample(range(1, 50), 6)
+# Generate the winning ticket
+winning_numbers = generate_ticket()
+print("Winning Numbers:", sorted(winning_numbers))
 
-# Print the winning numbers
-print("Winning Numbers:")
-for i, num in enumerate(winning_numbers, start=1):
-    print(f"Pick {i}: {num}")
+ticket_count = 0
 
-# Print the player's numbers
-print("\nPlayer's Numbers:") 
-for i, num in enumerate(player_numbers, start=1):
-    print(f"Pick {i}: {num}")
+while True:
+    player_numbers = generate_ticket()
+    ticket_count += 1
+
+    if player_numbers == winning_numbers:
+        print("\nJackpot! You won!")
+        print("Player's Winning Ticket:", sorted(player_numbers))
+        print(f"Tickets Needed to Win: {ticket_count}")
+        break
